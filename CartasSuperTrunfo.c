@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h> // para possibilitar retirar o \n do fgets 
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das cartas
@@ -20,19 +21,20 @@ int main() {
 
   // Área para entrada de dados
   //CARTA #1
+  printf("\n\t\t==== SUPER TRUNFO CIDADES ====\n"); 
   printf("\n\t\t==== CADASTRANDO CARTA #1 ====\n"); 
   
   printf("Por favor, digite o estado sem acentuacao (ex: Sao Paulo): ");
-  scanf("%[^\n]", c1_estado);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  fgets(c1_estado, 20, stdin);
+  c1_estado[strcspn(c1_estado, "\n")] = '\0'; //RETIRA O \N ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
   printf("Digite o codigo da carta (ex: A01, A02): ");
-  scanf("%[^\n]", c1_codigo);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  fgets(c1_codigo, 5, stdin);
+  c1_codigo[strcspn(c1_codigo, "\n")] = '\0'; //RETIRA O \N ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
-  printf("Digite nome da cidade, sem acentuacao (ex: Belem): ");
-  scanf("%[^\n]", c1_cidade);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  printf("Digite nome da cidade, sem acentuacao (ex: Sao Roque): ");
+  fgets(c1_cidade, 20, stdin);
+  c1_cidade[strcspn(c1_cidade, "\n")] = '\0'; //RETIRA O \N ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
   printf("Digite a populacao da cidade (ex: 10500000): ");
   scanf("%d", &c1_populacao);
@@ -49,20 +51,21 @@ int main() {
 
   /*****************************************************************/
   //CARTA #2
+  
   printf("\n\t\t==== CADASTRANDO CARTA #2 ====\n"); 
   scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
   
   printf("Por favor, digite o estado sem acentuacao (ex: Sao Paulo): ");
-  scanf("%[^\n]", c2_estado);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  fgets(c2_estado, 20, stdin);
+  c2_estado[strcspn(c2_estado, "\n")] = '\0'; //RETIRA O \n ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
   printf("Digite o codigo da carta (ex: B01, B02): ");
-  scanf("%[^\n]", c2_codigo);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  fgets(c2_codigo, 5, stdin);
+  c2_codigo[strcspn(c2_codigo, "\n")] = '\0'; //RETIRA O \n ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
-  printf("Digite nome da cidade, sem acentuacao (ex: Belem): ");
-  scanf("%[^\n]", c2_cidade);
-  scanf("%*[^\n]"); scanf("%*c"); //LIMPA O BUFFER
+  printf("Digite nome da cidade, sem acentuacao (ex: Sao Roque): ");
+  fgets(c2_cidade, 20, stdin);
+  c2_cidade[strcspn(c2_cidade, "\n")] = '\0'; //RETIRA O \n ACRESCENTADO PELO FGETS DO FINAL DA STRING
 
   printf("Digite a populacao da cidade (ex: 10500000): ");
   scanf("%d", &c2_populacao);
@@ -79,8 +82,9 @@ int main() {
 
   // Área para exibição dos dados da cidade
   //Exibindo deck de cartas lado a lado
+  
   printf("\n\t\t\t==== DECK ==== \n");
-
+  
   // EXIBINDO INFORMAÇÕES DA CARTA #1
   printf("\t= CARTA #1 =\n");
   printf("\tEstado: %s\n", c1_estado);
