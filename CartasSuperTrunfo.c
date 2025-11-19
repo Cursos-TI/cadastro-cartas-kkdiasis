@@ -31,6 +31,36 @@ float pibPerCapta(float pib, float populacao)
 }
 
 
+/*
+  Função para exibir as cartas cadastradas
+  esta deve reber os valores char estado, codigo[5], cidade[20];
+  float area, pib, densidadePopulacional, pibPerCapta;
+  int pontosTuristicos;
+  unsigned long int populacao. 
+*/
+void exibeCartas(
+  int carta,
+  char estado, char codigo[5], char cidade[20],
+  float area, float pib, float densidadePopulacional, float pibPerCapta,
+  int pontosTuristicos, int populacao
+)
+{
+
+  printf("\t= CARTA #%d =\n", carta);
+  printf("\tEstado: %c\n", estado);
+  printf("\tCodigo: %s\n", codigo);
+  printf("\tCidade: %s\n", cidade);
+  printf("\tPopulacao: %d\n", populacao);
+  printf("\tArea: %.2f Km^2\n", area);
+  printf("\tPIB: %.2f\n", pib);
+  printf("\tPontos Turisticos: %d\n", pontosTuristicos);
+  printf("\tDensidade populacional: %.2f HAB/Km^2\n", densidadePopulacional);
+  printf("\tPIB per capta: R$ %.2f\n\n", pibPerCapta);
+
+
+
+}
+
 
 
 int main() {
@@ -38,7 +68,8 @@ int main() {
   // vars Carta #1
   char c1_estado, c1_codigo[5], c1_cidade[20];
   float c1_area, c1_pib, c1_densidadePopulacional, c1_pibPerCapta;
-  int c1_populacao, c1_pontos_turisticos; 
+  int c1_pontos_turisticos; 
+  int c1_populacao;
 
   // vars Carta #2
   char c2_estado, c2_codigo[5], c2_cidade[20];
@@ -118,35 +149,22 @@ int main() {
 
 
   // Área para exibição dos dados da cidade
-  //Exibindo deck de cartas lado a lado
   
-  printf("\n\t\t\t==== DECK ==== \n");
   
-  // EXIBINDO INFORMAÇÕES DA CARTA #1
-  printf("\t= CARTA #1 =\n");
-  printf("\tEstado: %c\n", c1_estado);
-  printf("\tCodigo: %s\n", c1_codigo);
-  printf("\tCidade: %s\n", c1_cidade);
-  printf("\tPopulacao: %d\n", c1_populacao);
-  printf("\tArea: %.2f Km^2\n", c1_area);
-  printf("\tPIB: %.2f\n", c1_pib);
-  printf("\tPontos Turisticos: %d\n", c1_pontos_turisticos);
-  printf("\tDensidade populacional: %.2f HAB/Km^2\n", c1_densidadePopulacional);
-  printf("\tPIB per capta: R$ %.2f\n\n", c1_pibPerCapta);
+  exibeCartas(
+    1,
+    c1_estado, c1_codigo, c1_cidade, c1_area, c1_pib,
+    c1_densidadePopulacional, c1_pibPerCapta,
+    c1_pontos_turisticos, c1_populacao
+  );
 
-  // EXIBINDO INFORMAÇÕES DA CARTA #2
-  printf("\t= CARTA #2 =\n");
-  printf("\tEstado: %c\n", c2_estado);
-  printf("\tCodigo: %s\n", c2_codigo);
-  printf("\tCidade: %s\n", c2_cidade);
-  printf("\tPopulacao: %d\n", c2_populacao);
-  printf("\tArea: %.2f Km^2\n", c2_area);
-  printf("\tPIB: %.2f\n", c2_pib);
-  printf("\tPontos Turisticos: %d\n", c2_pontos_turisticos);
-  printf("\tDensidade populacional: %.2f HAB/Km^2\n", c2_densidadePopulacional);
-  printf("\tPIB per capta: R$ %.2f\n\n", c2_pibPerCapta);
+  exibeCartas(
+    2,
+    c2_estado, c2_codigo, c2_cidade, c2_area, c2_pib,
+    c2_densidadePopulacional, c2_pibPerCapta,
+    c2_pontos_turisticos, c2_populacao
+  );
 
-
-
+  
 return 0;
 } 
